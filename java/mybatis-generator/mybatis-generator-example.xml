@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- <classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" /> -->
+    <classPathEntry location="mysql-connector-java-5.1.37.jar" />
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost/mysql"
+                        userId="root"
+                        password="">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.unicornsummer.mybatis.generator.example.entity" targetProject="example">
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.unicornsummer.mybatis.generator.example.mapper"  targetProject="example">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.unicornsummer.mybatis.generator.example.mapper"  targetProject="example">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <table schema="mysql" tableName="user" domainObjectName="User" >
+            <property name="useActualColumnNames" value="false"/>
+            <!-- <generatedKey column="id" sqlStatement="MySql" identity="true" /> -->
+            <!--<columnOverride column="DATE_FIELD" property="startDate" />-->
+            <!--<ignoreColumn column="FRED" />-->
+        </table>
+
+    </context>
+</generatorConfiguration>
